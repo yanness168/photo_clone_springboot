@@ -1,5 +1,6 @@
-package com.yabo.yanness.photoz.clone;
+package com.yabo.yanness.photoz.clone.service;
 
+import com.yabo.yanness.photoz.clone.model.Photo;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

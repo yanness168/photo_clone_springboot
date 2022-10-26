@@ -1,4 +1,4 @@
-package com.yabo.yanness.photoz.clone;
+package com.yabo.yanness.photoz.clone.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.support.StringMultipartFileEditor;

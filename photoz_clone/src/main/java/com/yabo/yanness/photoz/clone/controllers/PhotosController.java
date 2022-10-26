@@ -1,5 +1,7 @@
-package com.yabo.yanness.photoz.clone;
+package com.yabo.yanness.photoz.clone.controllers;
 
+import com.yabo.yanness.photoz.clone.model.Photo;
+import com.yabo.yanness.photoz.clone.service.PhotosService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,9 +1,10 @@
-package com.yabo.yanness.photoz.clone;
+package com.yabo.yanness.photoz.clone.controllers;
 
+import com.yabo.yanness.photoz.clone.model.Photo;
+import com.yabo.yanness.photoz.clone.service.PhotosService;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
