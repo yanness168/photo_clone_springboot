@@ -1,38 +1,41 @@
 package com.yabo.yanness.photoz.clone.service;
 
 import com.yabo.yanness.photoz.clone.model.Photo;
+import com.yabo.yanness.photoz.clone.repository.PhotosRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 //@Component
     @Service
     public class PhotosService {
         //This is a database
-        private Map<String, Photo> db = new HashMap<>(){{put("1", new Photo("1", "hi.jpg"));}};
+        private final PhotosRepository photosRepository;
 
-    public Collection<Photo> get() {
-        return db.values();
+    public PhotosService (PhotosRepository photosRepository){
+        this.photosRepository = photosRepository;
     }
 
-    public Photo get(String id) {
-        return db.get(id);
+    public Iterable<Photo> get() {
+        return photosRepository.findAll();
     }
 
-    public Photo remove(String id) {
-        return db.remove(id);
+    public Photo get(Integer id) {
+        return photosRepository.findById(id).orElse(null);
+    }
+
+    public void remove(Integer id) {
+        photosRepository.deleteById(id);
     }
 
     public Photo save(String fileName, String contentType, byte[] data) {
-        Photo p = new Photo ("", "");
-        p.setId(UUID.randomUUID().toString());
+        Photo p = new Photo ();
+
         p.setFileName(fileName);
         p.setContentType(contentType);
         p.setData(data);
-        db.put(p.getId(),p);
+
+        photosRepository.save(p);
         return p;
     }
 }

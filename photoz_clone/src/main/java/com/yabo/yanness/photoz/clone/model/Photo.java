@@ -1,12 +1,17 @@
 package com.yabo.yanness.photoz.clone.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.web.multipart.support.StringMultipartFileEditor;
 
 import javax.validation.constraints.NotEmpty;
 
+@Table("PHOTOS")
 public class Photo {
-    private String id;
+
+    @Id
+    private Integer id;
 
     private String contentType;
 
@@ -16,12 +21,9 @@ public class Photo {
     @JsonIgnore//Not including the data bytes info in the JSON object bc it's too long
     private byte[] data;
 
-    public Photo(String id, String fileName){
-        this.id=id;
-        this.fileName=fileName;
-    }
+    public Photo(){}
 
-    public String getId(){
+    public Integer getId(){
         return id;
     };
 
@@ -37,7 +39,7 @@ public class Photo {
         return contentType;
     }
 
-    public void setId(String id){
+    public void setId(Integer id){
         this.id = id;
     };
 

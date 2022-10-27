@@ -17,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
     }
 
         @GetMapping("download/{id}")
-        public ResponseEntity<byte[]> download(@PathVariable String id){
+        public ResponseEntity<byte[]> download(@PathVariable Integer id){
 
             Photo p = ps.get(id);
             if (p==null)throw new ResponseStatusException(HttpStatus.NOT_FOUND);
